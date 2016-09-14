@@ -93,7 +93,76 @@ Prerequisite: `[LO-GitLocal]`
   * In the PR description, include `Fixes #{issue_number}` e.g. `Fixes #123`<br>
     Reason for the above: It instructs GitHub to close the issue automatically when your PR is merged.
 * When the PR is ready, add a comment with the text `Ready for review`.
-  
+
+### Follow the centralized workflow [`LO-CentralizedWorkflow`]
+
+When working as a team, you need to be able to write code in parallel and merge the code later.
+ There are different workflows you can adopt for this purpose.
+ The [centralized workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/centralized-workflow)
+ is one of the simplest.
+
+#### Exercise: merge commits using centralized workflow
+
+This is a team exercise.
+
+* These steps are to be done by only one member of the team.
+  * Fork this repo to your account, if you haven't done that already. Let's call it the 'team fork'
+  * [Give other team members push access to your fork](https://help.github.com/articles/inviting-collaborators-to-a-personal-repository/).
+
+* These steps are to be done by all members.
+  * Clone the *team fork* to your computer.
+  * While staying in the `master`, add a new file to the repo with the name
+  `/centralized/{YourName}.txt`. e.g. `centralized/JamesYong.txt`
+  * Add some content into the file and commit it.
+
+* Now follow the centralized workflow (see link given above) to push your changes to the
+  team fork.
+  * You can ignore references to SVN (in the workflow description). SVN is an older RCS tool.
+    You can also ignore the bit about setting up the repo. As you are using a fork, there is no need to set it up.
+  * As team member is editing a different file, there should not be any merge conflicts.
+
+### Resolve merge conflicts [`LO-MergeConflicts`]
+
+This is a team exercise.
+
+Prerequisites: `LO-CentralizedWorkflow`
+
+* [Only one member] While staying in the `master` branch,
+  create a file `/centralized/{Team-ID}.txt`, commit, and push to the team fork.
+* [All members] 
+  * Pull the master branch to your clone, add your own name as the first line of the file,
+    and commit. Wait for other members to finish this step.
+  * Now try to push to the team fork. This is likely to create merge conflicts. Resolving them will give you an opportunity
+    to learn how to resolve merge conflicts. More instructions about resolving conflicts
+    can be found in the [centralized workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/centralized-workflow)
+
+
+### Follow the Feature Branch Workflow [`LO-FeatureBranchWorkflow`]
+
+This is a team exercise.
+
+* [Only one member]
+  * Create a GitHub organization for your team.
+  * Fork a repo to that org: you can fork this repo or any other repo that you team members were previously working in.
+  * Add your team members as contributors to that fork. Let's call it the *team repo*.
+* [All members]
+  * If you have a clone of the team repo on your computer (or a clone of any upstream version of the repo), add the
+    team repo as a `remote` of that clone. Otherwise clone the team repo to your computer.
+
+    > **Adding a remote using SourceTree**
+      1. Choose `Repository > Repository Settings` from the menu.
+      2. Click `Add`.
+      3. Copy-paste the team repo URL into the `URL/Path` box. <br>
+         e.g. `https://github.com/se-edu/rcs.git` (Note the `.git` at the end)
+      4. Give a suitable name in the `Remote name` box. e.g. `teamrepo`
+      4. Click `OK`.
+
+  * Now, each member add a feature to the code base using the
+   [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow)
+   also known as the [Github flow](https://guides.github.com/introduction/flow/).
+
+
+
 -----------------------------------------------------------------------------------------------------
 # Contributors
 
